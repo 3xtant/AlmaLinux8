@@ -158,7 +158,12 @@
     <ResourceCompile Include="DistroLauncher.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include=".\images\icon.ico" />
+    <Image Include=".\images\icon.ico">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="messages.mc">
